@@ -1,6 +1,6 @@
-# Project 1: Plot 1
+# Project 1: Plot 3
 # Author: Christopher Mahoney
-# Date: 4/11/2015
+# Date: 4/12/2015
 
 # Read in electric power subset dataset
 
@@ -15,12 +15,11 @@ head(DF_power)
 convert <- paste(DF_power$Date, DF_power$Time)
 DF_power$DateTime <- strptime(convert, "%d/%m/%Y %H:%M:%S")
 
-# Check column types
-
-str(DF_power)
-
-# Create plot
+# Create Plot
 par(mfrow = c(1, 1), mar = c(4,4,2,2))
-png(filename = "plot1.png", width = 480, height = 480, units = "px")
-hist(DF_power$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (killowatts)", ylim = c(0,1200))
+png(filename = "plot3.png", width = 480, height = 480, units = "px")
+plot(DF_power$DateTime, DF_power$Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Energy sub metering")
+lines(DF_power$DateTime, DF_power$Sub_metering_2, col = "red")
+lines(DF_power$DateTime, DF_power$Sub_metering_3, col = "blue")
+legend("topright", col = c("black", "red", "blue"), c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd = 1)
 dev.off()

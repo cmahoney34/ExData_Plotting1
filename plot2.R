@@ -1,6 +1,6 @@
-# Project 1: Plot 1
+# Project 1: Plot 2
 # Author: Christopher Mahoney
-# Date: 4/11/2015
+# Date: 4/12/2015
 
 # Read in electric power subset dataset
 
@@ -21,6 +21,6 @@ str(DF_power)
 
 # Create plot
 par(mfrow = c(1, 1), mar = c(4,4,2,2))
-png(filename = "plot1.png", width = 480, height = 480, units = "px")
-hist(DF_power$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (killowatts)", ylim = c(0,1200))
+png(filename = "plot2.png", width = 480, height = 480, units = "px")
+plot(DF_power$DateTime, DF_power$Global_active_power, type = "l", ylab = "Global Active Power (killowatts)", xlab = "")
 dev.off()
